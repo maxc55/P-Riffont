@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio de l'Artiste</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <img src="Logo.png" alt="Logo de l'artiste" style="width: 200px; height: auto;">
+        <nav>
+            <a href="#home">Accueil</a>
+            <a href="#about">À propos</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    
+    
+
+    <section class="main" id="home">
+        <div class="gallery" id="galleryContainer">
+            <!-- Les images seront ajoutées ici par JavaScript -->
+        </div>
+    </section>
+    
+    
+    <section class="main" id="about">
+        <h2>À propos de moi</h2>
+        <img src="Mama.jpg" alt="Image de présentation" class="small-image">
+        <p>Une artiste exceptionnelle et une merveilleuse maman !</p>
+    </section>
+    
+    
+
+    <section class="main" id="contact">
+        <h2>Contact</h2>
+        <p>Informations de contact.</p>
+        <a href="https://www.facebook.com/pascalepitche.riffont" target="_blank">
+            <img src="Facebook.png" alt="Logo Facebook" class="small-facebook-logo">
+        </a>
+    </section>
+    
+    
+
+    <footer class="footer">
+        <p>© 2024 Maxime Callewaert </p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const gallery = document.getElementById('galleryContainer');
+            const imageNames = [
+  "Symphonie Circulaire.jfif",
+  "Solitude Verdoyante.jfif",
+  "Éclat Floral.jfif",
+  "Jardin Aquarelle.jfif",
+  "Explosion Automnale.jfif",
+  "Pont Vers la Sérénité.jfif",
+  "Bouquet d'Automne.jfif",
+  "Mosaïque de la Nature.jfif",
+  "Clair de Forêt.jfif",
+  "Reflets du Crépuscule.jfif",
+  "Brise Marine et Nuages.jfif",
+  "Rêverie au Crépuscule.jfif",
+  "Fenêtre sur l'Océan.jfif",
+  "Danse des Couleurs.jfif",
+  "Carnaval Floral.jfif",
+  "Harmonie en Feuillage.jfif",
+  "Méditation au Rivage.jfif",
+  "Été Tranquille.jfif",
+  "Ballet Aquatique.jfif",
+  "Silhouette en Contemplation 1.jfif",
+  "Silhouette en Contemplation 2.jfif",
+  "Silhouette en Contemplation 3.jfif",
+  "Silhouette en Contemplation 4.jfif",
+  "Symphonie en Turquoise et Vert.jfif",
+  "Chuchotements Nocturnes.jfif",
+  "Brise Printanière.jfif",
+  "Éclat d'Automne.jfif",
+  "Jardin Sauvage.jfif",
+  "Triptyque des Marées.jfif",
+  "Festival Floral.jfif",
+  "Mystère Félin.jfif",
+  "Sérénité Cascade.jfif",
+  "Résonance Abstraite.jfif",
+  "Repos en Forêt.jfif"
+];
+
+
+            
+            let html = '';
+        
+            imageNames.forEach((imageName, index) => {
+                // Supprimer l'extension .jfif
+                const nameWithoutExtension = imageName.replace('.jfif', '');
+                html += `
+                    <div class="photo">
+                        <img src="${imageName}" alt="Œuvre ${index + 1}">
+                        <p>${nameWithoutExtension}</p>
+                        <p><span class="sold">Vendue</span></p>
+                    </div>
+                `;
+            });
+        
+            gallery.innerHTML = html;
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sélectionnez tous les liens de navigation dans l'en-tête
+            const navLinks = document.querySelectorAll('header nav a');
+    
+            // Ajoutez un écouteur d'événements à chaque lien
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    // Empêchez le comportement par défaut du lien (le défilement immédiat)
+                    event.preventDefault();
+    
+                    // Récupérez l'ID de la section cible à partir de l'attribut href du lien
+                    const targetId = this.getAttribute('href').substring(1);
+    
+                    // Récupérez la section cible en fonction de son ID
+                    const targetSection = document.getElementById(targetId);
+    
+                    // Faites défiler la page jusqu'à la section cible avec une animation fluide
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+    
+    
+    
+    
+</body>
+</html>
